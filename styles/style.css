@@ -1,21 +1,126 @@
+
+p, h1, h2, h3, h4, h5, h6, li {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: hsl(226, 43%, 10%);
+}
+
 .main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: 5%;
 }
 
-.profile {
-  flex: 1;
+/* cars profile */
+.profile-wrap {
+  background: hsl(235, 46%, 20%);
+  color: hsl(0, 0%, 100%);
+  margin: 10px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+
+
 }
+.profile {
+  background: hsl(246, 80%, 60%);
+  flex: 1;
+  border-radius: 25px;
+  padding: 20px 30px;
+}
+.foto img{
+  width: 60px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+.name {
+  padding: 20px 0;
+}
+.name p{
+  font-size: 1em;
+  font-weight: 300;
+}
+.name h1 {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.option ul{
+  list-style: none;
+}
+
+.option li {
+  line-height: 1.7;
+  text-transform: capitalize;
+}
+.option li.active {
+  color: hsl(246, 80%, 60%);
+}
+
+
+
+
 .time-tracking {
   display: flex;
   flex-wrap: wrap;
 }
 
-.card {
+.item {
   background: hsl(235, 46%, 20%);
+  border-radius: 25px;
+  margin-top: 45px;
+  height: calc(100% - 45px);
+  position: relative;
+  padding: 3px 20px;
+}
+
+.item-wrap {
   color: hsl(0, 0%, 100%);
   flex: 1 1 30%;
   margin: 10px;
+  border-radius: 25px;
+  max-width: 300px;
+  width: 100px;
+
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.work {
+  background-color: hsl(15, 100%, 70%);
+  background-image: url('../images/icon-work.svg');
+}
+
+.play {
+  background-color: hsl(195, 74%, 62%);
+  background-image: url('../images/icon-play.svg');
+}
+.study {
+  background-color: hsl(348, 100%, 68%);
+  background-image: url('../images/icon-study.svg');
+}
+.exercise {
+  background-color: hsl(145, 58%, 55%);
+  background-image: url('../images/icon-exercise.svg');
+}
+.social {
+  background-color: hsl(264, 64%, 52%);
+  background-image: url('../images/icon-social.svg');
+}
+.self-care{
+  background-color: hsl(43, 84%, 65%);
+  background-image: url('../images/icon-self-care.svg');
 }
 
 .timeframe {
@@ -28,9 +133,37 @@
 
 
 .attribution { 
-  font-size: 11px; 
-  text-align: center; 
+  font-size: 11px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  padding: 20px 0; 
 }
 .attribution a { 
   color: hsl(228, 45%, 44%); 
+}
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  .profile-wrap {
+  }
+
+  .time-tracking {
+    flex-direction: column;
+    margin: 10px;
+  }
+  .item-wrap {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .attribution {
+    position: relative;
+  }
 }

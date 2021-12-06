@@ -7,13 +7,13 @@ let main = document.querySelector('#time-tracking');
 fetch(url, { mode: "no-cors" })
   .then((res) => res.json())
   .then((itens) => {
-    console.log( typeof(itens), itens);
-    // html += `<div>`;
     
     for( item of itens ){
-      html += `<div class='card ${item.title}'>
-                <h1 class='title'>${item.title}</h1>`;
-      console.log(item.title);
+      const className = item.title.replace(' ', '-').toLowerCase();
+      
+      html += `<div class='item-wrap ${className}'>
+                <div class='item'>
+                  <h4 class='title'>${item.title}</h4>`;
       const entries = Object.entries(item.timeframes);
       entries.forEach( x => {
         html += `<div class='timeframe ${x[0]}'>
@@ -21,16 +21,21 @@ fetch(url, { mode: "no-cors" })
                   <span class='previous'>${x[1]['previous']}</span>
                  </div>`;
       });
-      html += `</div>`;
+      html +=   `</div>
+              </div>`;
     }
     main.innerHTML = html;
+    document.querySelectorAll('.daily').forEach(e => e.classList.add('visible'));
   });
 
 
 const selectOption = (param) => {
+  const optionsList = document.querySelectorAll('.option ul li');
+  optionsList.forEach(e => e.classList.remove('active'));
+  param.classList.add('active');
+
   const options = document.querySelectorAll('.timeframe');
-  let selected = document.querySelectorAll(`.${param.innerHTML}`);
-  
+  const selected = document.querySelectorAll(`.${param.innerHTML}`);
   options.forEach( e => e.classList.remove('visible'));
   selected.forEach(
     e => e.classList.add('visible')

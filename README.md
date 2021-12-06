@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://time-tracking-frontmentor.netlify.app/)
+- Solution URL: [Solution URL](https://time-tracking-frontmentor.netlify.app/)
 
 ## My process
 

@@ -28,16 +28,16 @@ body {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  max-width: 200px;
-
-
+  max-width: 220px;
 }
+
 .profile {
   background: hsl(246, 80%, 60%);
   flex: 1;
   border-radius: 25px;
   padding: 20px 30px;
 }
+
 .foto img{
   width: 60px;
   border: 4px solid white;
@@ -58,33 +58,22 @@ body {
 
 .option ul{
   list-style: none;
+  padding-left: 30px;
 }
-
 .option li {
-  line-height: 1.7;
+  padding: 5px 0;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .option li.active {
   color: hsl(246, 80%, 60%);
 }
 
-
-
-
+/* time tracking cards */
 .time-tracking {
   display: flex;
   flex-wrap: wrap;
 }
-
-.item {
-  background: hsl(235, 46%, 20%);
-  border-radius: 25px;
-  margin-top: 45px;
-  height: calc(100% - 45px);
-  position: relative;
-  padding: 3px 20px;
-}
-
 .item-wrap {
   color: hsl(0, 0%, 100%);
   flex: 1 1 30%;
@@ -92,11 +81,13 @@ body {
   border-radius: 25px;
   max-width: 300px;
   width: 100px;
-
+  height: 200px;
   background-repeat: no-repeat;
   background-position: right top;
+  cursor: pointer;
 }
 
+/* category */
 .work {
   background-color: hsl(15, 100%, 70%);
   background-image: url('../images/icon-work.svg');
@@ -125,13 +116,47 @@ body {
 
 .timeframe {
   display: none;
+  color: hsl(236, 100%, 87%);
+  padding-top: 15px;
 }
-
 .visible {
   display: block;
 }
 
+.item {
+  background: hsl(235, 46%, 20%);
+  border-radius: 25px;
+  margin-top: 45px;
+  height: calc(100% - 45px);
+  position: relative;
+  padding: 3px 30px;
+}
+.item-wrap.active .item {
+  background: hsl(236, 41%, 34%);
+}
 
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.title h4 {
+  font-weight: 500;
+}
+.title .ellipsis{
+  line-height: 0.125;
+  font-size: 1.75em;
+}
+
+.timeframe .current {
+  font-size: 2em;
+  font-weight: 300;
+  color: hsl(0, 0%, 100%);
+  padding-bottom: 10px;
+}
+
+/* footer */
 .attribution { 
   font-size: 11px;
   text-align: center;
@@ -139,30 +164,47 @@ body {
   width: 100%;
   position: fixed;
   padding: 20px 0; 
+  color: hsl(0, 0%, 100%);
 }
 .attribution a { 
-  color: hsl(228, 45%, 44%); 
+  color: hsl(0, 0%, 100%); 
 }
+
+/* responsive config */
 
 @media (max-width: 600px) {
   .main {
     flex-direction: column;
-    margin: 0;
+    margin: 20px;
   }
   
   .profile-wrap {
+    max-width: none;
+  }
+
+  .option ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 0;
   }
 
   .time-tracking {
     flex-direction: column;
     margin: 10px;
   }
+
   .item-wrap {
     flex: 1;
     width: 100%;
     max-width: 100%;
-    margin: 10px 0;
+    margin: 20px 0;
   }
+
+  .item {
+    padding: 10px 30px;
+  }
+  
   .attribution {
     position: relative;
   }
